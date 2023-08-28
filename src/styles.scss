@@ -1,0 +1,24 @@
+@import "static/styles/normalize.css";
+@import "static/styles/fonts.css";
+
+html{
+  font-family: 'Inter', Arial, sans-serif;
+  color: #000000;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
