@@ -12,31 +12,39 @@
   </div>
 </header>
 
-<SettingCanvas />
+<main class="main">
+  <SettingCanvas />
+</main>
+
+<footer>
+  Низ приложения
+</footer>
 
 <style lang="scss">
   .header {
+    width: 100%;
     height: 20vh;
-    background-size: 100%;
-    background: linear-gradient(90deg, rgba(233, 30, 99, 1) 0%, rgba(103, 58, 183, 1) 100%);
+    padding: 10px 20px 0;
+    background: linear-gradient(90deg, rgba(155,64,150,1) 0%, rgba(255,134,134,1) 50%,  rgba(255,229,71,1) 100%);
     background-size: 150%;
+    border-bottom: 3px solid rgb(0, 0, 0);
     animation: gradient ease-in-out 6s infinite alternate;
   }
 
+  .main {
+    min-height: 75vh;
+    padding: 45px 0;
+  }
+
   .title {
-    text-align: center;
-    width: 100vw;
-    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
   }
 
   .title__logo {
-    position: absolute;
-    top: 15px;
-    left: 30px;
     width: 120px;
     height: 150px;
-    z-index: 1;
-    animation: RotateLogo 6s linear infinite alternate;
   }
 
   .title__text {
@@ -62,28 +70,8 @@
                 -7px 6px #cdd2d5,
                 -7px 8px #808d93,
                 -8px 7px #cdd2d5;
-    animation: TextMover 15s linear infinite alternate-reverse;
   }
-
-
-  @keyframes RotateLogo {
-    from {
-      transform: rotate(30deg);
-    }
-    to {
-      transform: rotate(-30deg);
-    }
-  }
-
-  @keyframes TextMover {
-    from {
-      transform: translateX(-20%);
-    }
-    to {
-      transform: translateX(30%);
-    }
-  }
-
+  
   @keyframes gradient {
     0% {
       background-position: 100% 50%;

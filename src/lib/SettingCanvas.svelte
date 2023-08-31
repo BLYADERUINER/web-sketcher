@@ -25,7 +25,7 @@
   .setting {
     border: 1px solid black;
     border-radius: 20px;
-    margin: 50px auto;
+    margin: 0 auto;
     max-width: 45%;
     padding: 20px;
   }
