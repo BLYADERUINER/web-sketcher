@@ -16,6 +16,9 @@
 
 <style lang="scss">
   .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     min-height: 75vh;
     padding: 45px 0;
   }

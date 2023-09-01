@@ -11,7 +11,7 @@
   .header {
     width: 100%;
     height: 20vh;
-    padding: 10px 20px 0;
+    padding: 0.5rem 1rem;
     background: linear-gradient(90deg, rgba(155,64,150,1) 0%, rgba(255,134,134,1) 50%,  rgba(255,229,71,1) 100%);
     background-size: 150%;
     border-bottom: 3px solid rgb(131, 131, 131);
@@ -21,7 +21,7 @@
   .header__container {
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    gap: 2rem;
   }
 
   .header__logo {
@@ -31,9 +31,9 @@
 
   .header__text {
     position: relative;
-    margin: 50px 0 0;
+    margin: 3rem 0 0;
     text-transform: uppercase;
-    font-size: 50px;
+    font-size: 3em;
     color: #ffffff;
     text-shadow:
                 0 1px #808d93,
