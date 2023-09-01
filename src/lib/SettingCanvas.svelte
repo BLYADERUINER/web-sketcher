@@ -17,6 +17,7 @@
       Ширина холста:
       <input class="setting__input setting__input-width" type="number" />
     </label>
+    <span class="setting__info">инфа по мин и макс значению</span>
     <button class="setting__button" type="submit">Применить</button>
   </form>
 </section>
@@ -47,20 +48,27 @@
     margin: 0;
     border: none;
     background-color: transparent;
-    inline-size: 3.5em;
     outline: none;
   }
 
   .setting__input-color {
-    padding-left: 1.5rem;
+    inline-size: 4em;
+    padding-left: 1.8rem;
   }
 
   .setting__input-height {
-    padding-left: 1rem;
+    inline-size: 4.8em;
+    padding-left: 1.6rem;
   }
 
   .setting__input-width {
-    padding-left: .7rem;
+    inline-size: 5.1em;
+    padding-left: 1.6rem;
+  }
+
+  .setting__info {
+    margin-top: .6rem;
+    font-size: .5em;
   }
 
   .setting__button {
