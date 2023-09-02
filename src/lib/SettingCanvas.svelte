@@ -24,11 +24,21 @@
 
 <style lang="scss">
   .setting {
-    border: 1px solid black;
-    border-radius: 1.5rem;
+    --angle: 0deg;
+    border: 5px solid transparent;
+    border-image: linear-gradient(var(--angle), rgba(155,64,150,1) 0%, rgba(255,134,134,1) 50%,  rgba(255,229,71,1) 100%);
+    border-image-slice: 1;
+    animation: BorderRotate linear 9s infinite;
     margin: 0 auto;
     min-width: 45%;
     padding: 1.2rem;
+    box-shadow: 1px 1px 25px #a1a1a1;
+  }
+
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
   }
 
   .setting__title {

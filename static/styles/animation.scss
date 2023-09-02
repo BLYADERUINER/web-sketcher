@@ -9,3 +9,9 @@
     background-position: 100% 0%;
   }
 }
+
+@keyframes BorderRotate {
+  to {
+    --angle: 360deg;
+  }
+}
