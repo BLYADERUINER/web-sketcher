@@ -1,21 +1,23 @@
 <script>
   let colorValue = '#ffffff';
+  let canvasHeight = 600;
+  let canvasWidth = 600;
 </script>
 
 <section class="setting">
   <h2 class="setting__title">Настройка холста</h2>
   <form class="setting__form">
-    <label>
+    <label class="setting__label">
       Цвет холста:
       <input class="setting__input setting__input-color" type="color" bind:value={colorValue} /> 
     </label>
-    <label>
+    <label class="setting__label">
       Высота холста:
-      <input class="setting__input setting__input-height" type="number" />
+      <input class="setting__input setting__input-height" type="number" bind:value={canvasHeight} />
     </label>
-    <label>
+    <label class="setting__label">
       Ширина холста:
-      <input class="setting__input setting__input-width" type="number" />
+      <input class="setting__input setting__input-width" type="number" bind:value={canvasWidth} />
     </label>
     <span class="setting__info">инфа по мин и макс значению</span>
     <button class="setting__button" type="submit">Применить</button>
@@ -33,6 +35,8 @@
     min-width: 45%;
     padding: 1.2rem;
     box-shadow: 1px 1px 25px #a1a1a1;
+    background-color: #ffffff;
+    backdrop-filter: blur(15px);
   }
 
   @property --angle {
@@ -42,7 +46,7 @@
   }
 
   .setting__title {
-    font-size: 2rem;
+    font-size: 2em;
     text-align: center;
   }
 
@@ -54,6 +58,12 @@
     gap: .9rem;
   }
 
+  .setting__label {
+    font-size: 1.1em;
+    line-height: 1.5rem;
+    font-weight: 500;
+  }
+
   .setting__input {
     margin: 0;
     border: none;
@@ -62,6 +72,10 @@
   }
 
   .setting__input-color {
+    cursor: pointer;
+    appearance: none;
+    border-radius: 30px;
+    height: 1.5rem;
     inline-size: 4em;
     padding-left: 1.8rem;
   }

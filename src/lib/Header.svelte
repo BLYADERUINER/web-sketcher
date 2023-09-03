@@ -14,7 +14,6 @@
     padding: 0.5rem 1rem;
     background: linear-gradient(90deg, rgba(155,64,150,1) 0%, rgba(255,134,134,1) 50%,  rgba(255,229,71,1) 100%);
     background-size: 150%;
-    border-bottom: 3px solid rgb(131, 131, 131);
     animation: gradient ease-in-out 6s infinite alternate;
   }
 
