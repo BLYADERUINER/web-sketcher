@@ -1,6 +1,6 @@
 <script>
   let colorValue = '#ffffff';
-  let canvasHeight = 600;
+  let canvasHeight = 400;
   let canvasWidth = 600;
 </script>
 
@@ -19,7 +19,7 @@
       Ширина холста:
       <input class="setting__input setting__input-width" type="number" bind:value={canvasWidth} />
     </label>
-    <span class="setting__info">инфа по мин и макс значению</span>
+    <span class="setting__info">min: 400px; max: 1440px;</span>
     <button class="setting__button" type="submit">Применить</button>
   </form>
 </section>
@@ -59,6 +59,8 @@
   }
 
   .setting__label {
+    display: flex;
+    align-items: center;
     font-size: 1.1em;
     line-height: 1.5rem;
     font-weight: 500;
@@ -68,34 +70,56 @@
     margin: 0;
     border: none;
     background-color: transparent;
-    outline: none;
+    transition: all .2s ease-in-out;
+    outline: 2px solid transparent;
+    border-radius: 2rem;
   }
 
   .setting__input-color {
     cursor: pointer;
     appearance: none;
-    border-radius: 30px;
-    height: 1.5rem;
+    height: 1.6rem;
     inline-size: 4em;
-    padding-left: 1.8rem;
+    padding: .1rem .5rem 0 .5rem;
+    margin-left: 1rem;
   }
 
   .setting__input-height {
     inline-size: 4.8em;
-    padding-left: 1.6rem;
+    padding: .1rem .3rem;
+    margin-left: 1.5rem;
   }
 
   .setting__input-width {
     inline-size: 5.1em;
-    padding-left: 1.6rem;
+    padding: .1rem .3rem;
+    margin-left: 1.5rem;
+  }
+
+  .setting__input-width:focus,
+  .setting__input-height:focus {
+    outline: 2px solid #ff8686;
   }
 
   .setting__info {
+    color: #9c9b9b;
     margin-top: .6rem;
-    font-size: .5em;
+    font-size: .7em;
+    font-weight: 500;
   }
 
   .setting__button {
+    font-weight: 500;
+    color: #ffffff;
     margin-top: 3rem;
+    padding: .7rem;
+    background: linear-gradient(90deg, rgba(155,64,150,1) 0%, rgba(255,134,134,1) 50%,  rgba(255,229,71,1) 100%);
+    border-radius: 1.2em;
+    transition: all .2s linear;
   }
+
+  .setting__button:hover {
+    transform: translateY(-0.3rem);
+  }
+
 </style>
