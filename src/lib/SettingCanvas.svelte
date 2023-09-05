@@ -7,19 +7,22 @@
 <section class="setting">
   <h2 class="setting__title">Настройка холста</h2>
   <form class="setting__form">
-    <label class="setting__label">
-      Цвет холста:
-      <input class="setting__input setting__input-color" type="color" bind:value={colorValue} /> 
-    </label>
-    <label class="setting__label">
-      Высота холста:
-      <input class="setting__input setting__input-height" type="number" bind:value={canvasHeight} />
-    </label>
-    <label class="setting__label">
-      Ширина холста:
-      <input class="setting__input setting__input-width" type="number" bind:value={canvasWidth} />
-    </label>
-    <span class="setting__info">min: 400px; max: 1440px;</span>
+    <div class="setting__container">
+      <label class="setting__label" for="setting-color">Цвет холста:</label>
+      <input class="setting__input setting__input-color" id="setting-color" type="color" bind:value={colorValue} /> 
+    </div>
+    <div class="setting__container">
+      <label class="setting__label" for="setting-height">Высота холста:</label>
+      <input class="setting__input setting__input-height" id="setting-height" type="number" bind:value={canvasHeight} />
+    </div>
+    <div class="setting__container">
+      <label class="setting__label" for="setting-width">Ширина холста:</label>
+      <input class="setting__input setting__input-width" id="setting-width" type="number" bind:value={canvasWidth} />
+    </div>
+    <div class="setting__info-container">
+      <span class="setting__info">height = min: 400px; max: 900px;</span>
+      <span class="setting__info">width = min: 600px; max: 1440px;</span>
+    </div>
     <button class="setting__button" type="submit">Применить</button>
   </form>
 </section>
@@ -55,12 +58,19 @@
     flex-direction: column;
     align-items: center;
     padding: 2.5rem 0 .5rem;
-    gap: .9rem;
+    gap: 1rem;
+  }
+
+  .setting__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
   }
 
   .setting__label {
-    display: flex;
-    align-items: center;
+    flex: 1;
     font-size: 1.1em;
     line-height: 1.5rem;
     font-weight: 500;
@@ -71,29 +81,51 @@
     border: none;
     background-color: transparent;
     transition: all .2s ease-in-out;
-    outline: 2px solid transparent;
     border-radius: 2rem;
   }
 
   .setting__input-color {
-    cursor: pointer;
     appearance: none;
-    height: 1.6rem;
-    inline-size: 4em;
-    padding: .1rem .5rem 0 .5rem;
-    margin-left: 1rem;
+    cursor: pointer;
+    height: 2rem;
+    inline-size: 5.25em;
+  }
+
+  .setting__input-color::-webkit-color-swatch {
+    border-radius: 15px;
+    border: 2px solid #777777;
+  }
+
+  .setting__input-color::-moz-color-swatch {
+    border-radius: 15px;
+    border: 2px solid #777777;
   }
 
   .setting__input-height {
+    text-align: center;
     inline-size: 4.8em;
     padding: .1rem .3rem;
-    margin-left: 1.5rem;
+    outline: 2px solid #777777;
+    transition: outline .3s ease-in-out;
+    margin-right: .2rem;
   }
 
   .setting__input-width {
-    inline-size: 5.1em;
+    text-align: center;
+    inline-size: 4.8em;
     padding: .1rem .3rem;
-    margin-left: 1.5rem;
+    outline: 2px solid #777777;
+    margin-right: .2rem;
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
   }
 
   .setting__input-width:focus,
@@ -101,11 +133,18 @@
     outline: 2px solid #ff8686;
   }
 
+  .setting__info-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: .4rem;
+    gap: .5em;
+  }
+
   .setting__info {
     color: #9c9b9b;
-    margin-top: .6rem;
-    font-size: .7em;
+    font-size: .6em;
     font-weight: 500;
+    text-align: left;
   }
 
   .setting__button {
@@ -121,5 +160,4 @@
   .setting__button:hover {
     transform: translateY(-0.3rem);
   }
-
 </style>
