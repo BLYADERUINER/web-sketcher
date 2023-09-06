@@ -1,7 +1,8 @@
 <script>
   import "../styles.scss";
   import Header from '$lib/Header.svelte';
-  import SettingCanvas from '$lib/SettingCanvas.svelte';
+  import CanvasSetting from '$lib/CanvasSetting.svelte';
+	import CanvasPanel from '../lib/CanvasPanel.svelte';
 
   let left;
 </script>
@@ -9,7 +10,7 @@
 <Header />
 
 <main class="main">
-  <SettingCanvas />
+  <CanvasSetting />
 </main>
 
 <footer class="footer">
