@@ -1,10 +1,8 @@
 <script>
   import "../styles.scss";
+  
   import Header from '$lib/Header.svelte';
   import CanvasSetting from '$lib/CanvasSetting.svelte';
-	import CanvasPanel from '../lib/CanvasPanel.svelte';
-
-  let left;
 </script>
 
 <Header />
@@ -14,7 +12,7 @@
 </main>
 
 <footer class="footer">
-  <a class="footer__link" style:left = {left} on:mouseenter={() => left = "1px"} href="https://github.com/BLYADERUINER">©BLYADERUINER</a>
+  <a class="footer__link" href="https://github.com/BLYADERUINER">©BLYADERUINER</a>
 </footer>
 
 <style lang="scss">

@@ -1,14 +1,11 @@
-@import "/static/styles/normalize.scss";
 @import "/static/styles/fonts.scss";
+@import "/static/styles/normalize.scss";
 @import "/static/styles/animation.scss"; 
 
-html{
+body {
   font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
   color: #000000;
-}
-
-body {
   min-height: 100vh;
   min-width: 320px;
 }
