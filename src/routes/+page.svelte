@@ -31,16 +31,16 @@
     align-items: center;
     background-color: #696969;
     height: 5vh;
-  }
 
-  .footer__link {
-    color: #ffffff;
-    font-weight: 500;
-    font-size: .9em;
-    padding-right: 2rem;
-  }
-
-  .footer__link:hover {
-    color: #f2f2f2;
+    &__link {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: .9em;
+      padding-right: 2rem;
+      
+      &:hover {
+        color: #f2f2f2;
+      }
+    }
   }
 </style>
