@@ -133,6 +133,7 @@
 
       &:hover {
         transform: translateY(-0.3rem);
+        box-shadow: 0 3px 5px #929292;
       }
     }
   }
