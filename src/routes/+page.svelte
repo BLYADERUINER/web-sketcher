@@ -1,8 +1,8 @@
 <script>
   import "../styles.scss";
   
-  import Header from '$lib/Header.svelte';
-  import CanvasSetting from '$lib/CanvasSetting.svelte';
+  import Header from '$lib/components/Header.svelte';
+  import CanvasSetting from '$lib/components/CanvasSetting.svelte';
 </script>
 
 <Header />

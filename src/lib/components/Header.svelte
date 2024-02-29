@@ -2,12 +2,12 @@
   import CanvasPanel from './CanvasPanel.svelte';
 
   // временная ручка переключения
-  let setting = false;
+  let setting = true;
 </script>
 
 <header class="header">
   <div class="header__container">
-    <img class="header__logo" src="/logo.png" alt="Мега Круйтой Логотип Приложения"/>
+    <img class="header__logo" src="/logo.png" alt="Мега Крутой Логотип Приложения"/>
     {#if setting}
       <CanvasPanel />
     {:else}
@@ -22,7 +22,7 @@
   .header {
     width: 100%;
     height: 20vh;
-    padding: 0.5rem 1rem;
+    padding: 1em 3rem;
     background: linear-gradient(90deg, rgba(155,64,150,1) 0%, rgba(255,134,134,1) 50%,  rgba(255,229,71,1) 100%);
     background-size: 150%;
     animation: gradient ease-in-out 6s infinite alternate;
@@ -30,7 +30,7 @@
     &__container {
       display: flex;
       flex-direction: row;
-      gap: 2rem;
+      gap: 3.3em;
     }
 
     &__logo {
