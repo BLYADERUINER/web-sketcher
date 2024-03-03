@@ -1,46 +1,12 @@
 <script>
-  import "../styles.scss";
-  
-  import Header from '$lib/components/Header.svelte';
+  import { canvasVisible } from '$lib/stores/canvas_store.js';
+
   import CanvasSetting from '$lib/components/CanvasSetting.svelte';
+	import Canvas from '$lib/components/Canvas.svelte';
 </script>
 
-<Header />
-
-<main class="main">
+{#if $canvasVisible}
+  <Canvas /> 
+  {:else}
   <CanvasSetting />
-</main>
-
-<footer class="footer">
-  <a class="footer__link" href="https://github.com/BLYADERUINER">©BLYADERUINER</a>
-</footer>
-
-<style lang="scss">
-  .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 75vh;
-    padding: 45px 0;
-    background-color: #f1f1f1;
-  }
-
-  .footer {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    background-color: #696969;
-    height: 5vh;
-
-    &__link {
-      color: #ffffff;
-      font-weight: 500;
-      font-size: .9em;
-      padding-right: 2rem;
-      
-      &:hover {
-        color: #f2f2f2;
-      }
-    }
-  }
-</style>
+{/if}

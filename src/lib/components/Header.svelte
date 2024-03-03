@@ -1,14 +1,13 @@
 <script>
-  import CanvasPanel from './CanvasPanel.svelte';
+  import { canvasVisible } from '$lib/stores/canvas_store.js';
 
-  // временная ручка переключения
-  let setting = true;
+  import CanvasPanel from './CanvasPanel.svelte';
 </script>
 
 <header class="header">
   <div class="header__container">
     <img class="header__logo" src="/logo.png" alt="Мега Крутой Логотип Приложения"/>
-    {#if setting}
+    {#if $canvasVisible}
       <CanvasPanel />
     {:else}
     <h1 class="header__text">

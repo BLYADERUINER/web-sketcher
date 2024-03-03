@@ -1,29 +1,70 @@
 <script>
-  let colorValue = '#ffffff';
-  let canvasHeight = 400;
-  let canvasWidth = 600;
+  import { setCanvasSetting, setCanvasVisible } from '$lib/stores/canvas_store.js';
+
+  let setting = {
+    color_value: "#ffffff",
+    width: 600,
+    height: 400,
+  };
+
+  function handleSettingForCanvas() {
+    setCanvasSetting(setting);
+    setCanvasVisible();
+  }
 </script>
 
 <section class="setting">
   <h2 class="setting__title">Настройка холста</h2>
-  <form class="setting__form">
+  <form class="setting__form" on:submit|preventDefault={handleSettingForCanvas}>
     <div class="setting__container">
-      <label class="setting__label" for="setting-color">Цвет холста:</label>
-      <input class="setting__input-color" id="setting-color" type="color" bind:value={colorValue} /> 
+      <label
+        class="setting__label"
+        for="setting-color"
+      >
+        Цвет холста:
+      </label>
+      <input
+        class="setting__input-color"
+        id="setting-color"
+        type="color"
+        bind:value={setting.color_value}
+      /> 
     </div>
     <div class="setting__container">
-      <label class="setting__label" for="setting-height">Высота холста:</label>
-      <input class="setting__input-size" id="setting-height" type="number" bind:value={canvasHeight} />
+      <label
+        class="setting__label"
+        for="setting-height"
+      >
+        Высота холста:
+      </label>
+      <input
+        class="setting__input-size"
+        id="setting-height"
+        type="number"
+        bind:value={setting.height}
+      />
     </div>
     <div class="setting__container">
-      <label class="setting__label" for="setting-width">Ширина холста:</label>
-      <input class="setting__input-size" id="setting-width" type="number" bind:value={canvasWidth} />
+      <label
+        class="setting__label"
+        for="setting-width"
+      >
+        Ширина холста:
+      </label>
+      <input
+        class="setting__input-size"
+        id="setting-width"
+        type="number"
+        bind:value={setting.width}
+      />
     </div>
     <div class="setting__info-container">
       <span class="setting__info">height = min: 400px; max: 900px;</span>
       <span class="setting__info">width = min: 600px; max: 1440px;</span>
     </div>
-    <button class="setting__button" type="submit">Применить</button>
+    <button class="setting__button" type="submit">
+      Применить
+    </button>
   </form>
 </section>
 
@@ -99,6 +140,7 @@
       outline: 2px solid #777777;
       transition: outline .3s ease-in-out;
       margin-right: .2rem;
+      cursor: pointer;
 
       &:focus {
         outline: 2px solid #ff8686;
@@ -124,16 +166,19 @@
     // Кнопка подтверждения
     &__button {
       font-weight: 500;
-      color: #ffffff;
+      color: #000000;
       margin-top: 3rem;
-      padding: .7rem;
-      background: linear-gradient(90deg, rgba(155,64,150,1) 0%, rgba(255,134,134,1) 50%,  rgba(255,229,71,1) 100%);
+      padding: .6em .9em;
+      background-color: #ffffff;
+      border: 1.5px solid #2a2a2a;
+      box-shadow: 0 0 15px 0 rgba(0,0,0,.05),0 4px 4px 0 rgba(0,0,0,.05);
       border-radius: 1.2em;
       transition: all .2s linear;
-
+      
       &:hover {
+        color: #ffffff;
+        background-color: #2a2a2a;
         transform: translateY(-0.3rem);
-        box-shadow: 0 3px 5px #929292;
       }
     }
   }
