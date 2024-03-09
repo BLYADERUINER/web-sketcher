@@ -1,4 +1,6 @@
 <script>
+  import { fade } from 'svelte/transition';
+
 	import ButtonForChangeLineWidth from '$lib/components/buttons/ButtonForChangeLineWidth.svelte';
   import ButtonForChangeColor from '$lib/components/buttons/ButtonForChangeColor.svelte';
 	import EraserButton from '$lib/components/buttons/EraserButton.svelte';
@@ -8,9 +10,9 @@
   let rangeValue = 0;
 </script>
 
-<div class="panel">
+<div class="panel" in:fade>
   <h1 class="panel__title">
-    {"<sketcher_tools />"}
+    {"{ sketcher_tools }"}
   </h1>
   <div class="panel__tool-container">
     <ButtonForChangeLineWidth />
@@ -37,7 +39,7 @@
     &__tool-container {
       display: flex;
       flex-direction: row;
-      gap: 1.5em;
+      gap: 1.5rem;
     }
   }
 </style>

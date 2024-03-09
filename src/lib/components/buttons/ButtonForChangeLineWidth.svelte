@@ -1,5 +1,6 @@
 <script>
   import { fade } from 'svelte/transition';
+
 	import LineWidthIcon from '$lib/icons/LineWidthIcon.svelte';
 
   let rangeValue = 0;
@@ -16,9 +17,10 @@
       class="panel__line-width_range"
       type="range"
       bind:value={rangeValue}
-      in:fade={{ duration: 300 }}
       on:mouseup={() => visibleRange = false}
-    >
+      on:touchend={() => visibleRange = false}
+      in:fade={{ duration: 300 }}
+    />
   {:else}
     <LineWidthIcon />
   {/if}

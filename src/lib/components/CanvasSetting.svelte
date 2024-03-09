@@ -17,10 +17,7 @@
   <h2 class="setting__title">Настройка холста</h2>
   <form class="setting__form" on:submit|preventDefault={handleSettingForCanvas}>
     <div class="setting__container">
-      <label
-        class="setting__label"
-        for="setting-color"
-      >
+      <label class="setting__label" for="setting-color">
         Цвет холста:
       </label>
       <input
@@ -31,10 +28,7 @@
       /> 
     </div>
     <div class="setting__container">
-      <label
-        class="setting__label"
-        for="setting-height"
-      >
+      <label class="setting__label" for="setting-height">
         Высота холста:
       </label>
       <input
@@ -42,13 +36,12 @@
         id="setting-height"
         type="number"
         bind:value={setting.height}
+        min=400
+        max=900
       />
     </div>
     <div class="setting__container">
-      <label
-        class="setting__label"
-        for="setting-width"
-      >
+      <label class="setting__label" for="setting-width">
         Ширина холста:
       </label>
       <input
@@ -56,6 +49,8 @@
         id="setting-width"
         type="number"
         bind:value={setting.width}
+        min=600
+        max=1920
       />
     </div>
     <div class="setting__info-container">
@@ -76,8 +71,8 @@
     border-image-slice: 1;
     animation: BorderRotate linear 9s infinite;
     margin: 0 auto;
-    min-width: 45%;
-    padding: 1.2rem;
+    min-width: 35%;
+    padding: 1.5rem;
     box-shadow: 1px 1px 25px #a1a1a1;
     background-color: #ffffff;
     backdrop-filter: blur(15px);
@@ -143,7 +138,7 @@
       cursor: pointer;
 
       &:focus {
-        outline: 2px solid #ff8686;
+        outline: 2px solid #7a3a77;
       }
     }
 
@@ -170,14 +165,15 @@
       margin-top: 3rem;
       padding: .6em .9em;
       background-color: #ffffff;
-      border: 1.5px solid #2a2a2a;
+      border: 2px solid #777777;
       box-shadow: 0 0 15px 0 rgba(0,0,0,.05),0 4px 4px 0 rgba(0,0,0,.05);
       border-radius: 1.2em;
       transition: all .2s linear;
       
       &:hover {
         color: #ffffff;
-        background-color: #2a2a2a;
+        background-color: #7a3a77;
+        border-color: #7a3a77;
         transform: translateY(-0.3rem);
       }
     }
