@@ -1,7 +1,7 @@
 <script>
 	import ColorIcon from '$lib/icons/ColorIcon.svelte';
 
-  let colorValue = '000000';
+  export let colorValue;
 </script>
 
 <button class="panel__color">

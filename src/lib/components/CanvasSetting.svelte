@@ -2,7 +2,7 @@
   import { setCanvasSetting, setCanvasVisible } from '$lib/stores/canvas_store.js';
 
   let setting = {
-    color_value: "#ffffff",
+    background_color: "#ffffff",
     width: 600,
     height: 400,
   };
@@ -24,7 +24,7 @@
         class="setting__input-color"
         id="setting-color"
         type="color"
-        bind:value={setting.color_value}
+        bind:value={setting.background_color}
       /> 
     </div>
     <div class="setting__container">

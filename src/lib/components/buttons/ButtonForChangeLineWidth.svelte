@@ -3,8 +3,11 @@
 
 	import LineWidthIcon from '$lib/icons/LineWidthIcon.svelte';
 
-  let rangeValue = 0;
+  export let rangeValue;
+
   let visibleRange = false;
+
+  const visibleRangeHidden = () => visibleRange = false;
 </script>
 
 <button
@@ -16,9 +19,11 @@
     <input
       class="panel__line-width_range"
       type="range"
+      min=1
+      max=30
       bind:value={rangeValue}
-      on:mouseup={() => visibleRange = false}
-      on:touchend={() => visibleRange = false}
+      on:mouseup={visibleRangeHidden}
+      on:touchend={visibleRangeHidden}
       in:fade={{ duration: 300 }}
     />
   {:else}

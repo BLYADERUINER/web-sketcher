@@ -3,9 +3,10 @@
 	import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
 
-  import { canvasSetting } from '$lib/stores/canvas_store.js';
+  import { canvasSetting, canvasPanel } from '$lib/stores/canvas_store.js';
 
   const setting = get(canvasSetting);
+  const panel = get(canvasPanel);
 
   let canvas;
   let context;
@@ -15,14 +16,19 @@
 
   onMount(() => {
     context = canvas.getContext('2d');
-    context.lineWidth = 3;
-    context.strokeStyle = '#000000';
+    context.lineCap = "round";
 
     handleGetCanvasSize();
   });
 
   const handleStartOfDrawing = ({ offsetX: startPositionX, offsetY: startPositionY }) => {
     isDrawing = true;
+    
+    context.lineWidth = panel.line_width;
+    
+    if (!panel.eraser) context.strokeStyle = panel.paint_color;
+    else context.strokeStyle = setting.background_color; 
+    
     startPosition = { startPositionX, startPositionY };
   };
 
@@ -34,7 +40,6 @@
     context.beginPath();
     context.moveTo(startPositionX, startPositionY);
     context.lineTo(movePositionX, movePositionY);
-    context.closePath();
     context.stroke();
 
     startPosition = {
@@ -73,7 +78,7 @@
   bind:this={canvas}
   width={setting.width}
   height={setting.height}
-  style:background={setting.color_value}
+  style:background={setting.background_color}
   in:fade
   on:mousedown={handleStartOfDrawing}
   on:mousemove={handleMoveOfDrawing}
