@@ -21,6 +21,16 @@
     handleGetCanvasSize();
   });
 
+  const drawDotOnCanvas = (startPositionX, startPositionY, fill_color) => {
+    const dot_radius = panel.line_width / 2;  
+
+    context.beginPath();
+    context.arc(startPositionX, startPositionY, dot_radius, 0, 2 * Math.PI);
+    context.fillStyle = fill_color;
+    context.fill();
+    context.closePath();
+  };
+
   const handleStartOfDrawing = ({ offsetX: startPositionX, offsetY: startPositionY }) => {
     isDrawing = true;
     
@@ -30,6 +40,8 @@
     else context.strokeStyle = setting.background_color; 
     
     startPosition = { startPositionX, startPositionY };
+
+    drawDotOnCanvas(startPositionX, startPositionY, context.strokeStyle);
   };
 
   const handleMoveOfDrawing = ({ offsetX: movePositionX, offsetY: movePositionY }) => {
@@ -41,6 +53,7 @@
     context.moveTo(startPositionX, startPositionY);
     context.lineTo(movePositionX, movePositionY);
     context.stroke();
+    context.closePath();
 
     startPosition = {
       startPositionX: movePositionX,
