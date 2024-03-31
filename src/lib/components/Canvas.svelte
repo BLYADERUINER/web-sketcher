@@ -5,8 +5,8 @@
 
   import { canvasSetting, canvasPanel } from '$lib/stores/canvas_store.js';
 
-  const setting = get(canvasSetting);
-  const panel = get(canvasPanel);
+  let setting = get(canvasSetting);
+  let panel = get(canvasPanel);
 
   let canvas;
   let context;
@@ -14,12 +14,9 @@
   let startPosition;
   let canvasSize;
 
-  onMount(() => {
-    context = canvas.getContext('2d');
-    context.lineCap = "round";
-
-    handleGetCanvasSize();
-  });
+  let savedCanvasData;
+  let savedCanvasSetting;
+  let imageCanvasLoader;
 
   const drawDotOnCanvas = (startPositionX, startPositionY, fill_color) => {
     const dot_radius = panel.line_width / 2;  
@@ -60,8 +57,18 @@
       startPositionY: movePositionY,
     };
   };
+
+  const handleSavingCanvasOnLocalStorage = () => {
+    const canvasData = canvas.toDataURL();
+
+    localStorage.setItem("savedCanvasData", canvasData);
+  };
   
-  const handleEndOfDrawing = () => isDrawing = false;
+  const handleEndOfDrawing = () => {
+    isDrawing = false;
+    
+    handleSavingCanvasOnLocalStorage();
+  };
 
   const handleGetCanvasSize = () => {
 		const { top, left } = canvas.getBoundingClientRect();
@@ -83,6 +90,32 @@
 
     return;
   };
+
+  const handleSavedCanvas = () => {
+    imageCanvasLoader = new Image();
+
+    imageCanvasLoader.onload = function() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(imageCanvasLoader, 0, 0);
+      context.lineCap = "round";
+    };
+
+    imageCanvasLoader.src = savedCanvasData;
+  };
+
+  onMount(() => {
+    savedCanvasData = localStorage.getItem('savedCanvasData');
+    savedCanvasSetting = JSON.parse(localStorage.getItem('savedCanvasSetting'));
+
+    if (savedCanvasSetting) setting = savedCanvasSetting;
+
+    context = canvas.getContext('2d');
+    context.lineCap = "round";
+
+    if (savedCanvasData) handleSavedCanvas();
+
+    handleGetCanvasSize();
+  });
 </script>
 
 <svelte:window on:resize={handleGetCanvasSize} />

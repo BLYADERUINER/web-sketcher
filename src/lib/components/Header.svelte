@@ -1,13 +1,21 @@
 <script>
+	import { onMount } from 'svelte';
+
   import { canvasVisible } from '$lib/stores/canvas_store.js';
 
   import CanvasPanel from './CanvasPanel.svelte';
+
+  let savedCanvasVisible;
+
+  onMount(() => {
+    savedCanvasVisible = JSON.parse(localStorage.getItem('canvasVisible'));
+  });
 </script>
 
 <header class="header">
   <div class="header__container">
     <img class="header__logo" src="/logo.png" alt="Логотип Web-Sketcher"/>
-    {#if $canvasVisible}
+    {#if $canvasVisible || savedCanvasVisible}
       <CanvasPanel />
     {:else}
     <h1 class="header__text">

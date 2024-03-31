@@ -14,8 +14,18 @@ const canvasPanel = writable({
   eraser: false,
 });
 
-const setCanvasVisible = () => canvasVisible.update(() => true);
-const setCanvasSetting = (setting) => canvasSetting.update(() => setting);
+const setCanvasVisible = () => {
+  canvasVisible.update(() => true);
+
+  localStorage.setItem("canvasVisible", JSON.stringify(true));
+};
+
+const setCanvasSetting = (setting) => {
+  canvasSetting.update(() => setting);
+
+  localStorage.setItem("savedCanvasSetting", JSON.stringify(setting));
+};
+
 const setCanvasPanel = (panel) => canvasPanel.update(() => panel);
 
 export {
