@@ -1,5 +1,4 @@
 <script>
-  import { get } from 'svelte/store';
   import { fade } from 'svelte/transition';
 
   import { canvasPanel } from '$lib/stores/canvas_store';
@@ -9,8 +8,6 @@
 	import EraserButton from '$lib/components/buttons/EraserButton.svelte';
 	import SaveButton from '$lib/components/buttons/SaveButton.svelte';
 	import ReturnButton from '$lib/components/buttons/ReturnButton.svelte';
-
-  const panel = get(canvasPanel);
 </script>
 
 <div class="panel" in:fade>
@@ -19,13 +16,13 @@
   </h1>
   <div class="panel__tool-container">
     <ButtonForChangeLineWidth
-      bind:rangeValue={panel.line_width}
+      bind:rangeValue={$canvasPanel.line_width}
     />
     <ButtonForChangeColor
-      bind:colorValue={panel.paint_color}
+      bind:colorValue={$canvasPanel.paint_color}
     />
     <EraserButton
-      bind:eraserValue={panel.eraser}
+      bind:eraserValue={$canvasPanel.eraser}
     />
     <SaveButton />
     <ReturnButton />

@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
 
-  import { canvasSetting, canvasPanel } from '$lib/stores/canvas_store.js';
+  import { canvasSetting, canvasPanel, setCanvasCursorVisible, setCanvasCursorHidden } from '$lib/stores/canvas_store.js';
 
   let setting = get(canvasSetting);
   let panel = get(canvasPanel);
@@ -34,7 +34,7 @@
     context.lineWidth = panel.line_width;
     
     if (!panel.eraser) context.strokeStyle = panel.paint_color;
-    else context.strokeStyle = setting.background_color; 
+    else context.strokeStyle = setting.background_color;
     
     startPosition = { startPositionX, startPositionY };
 
@@ -133,6 +133,8 @@
   on:touchstart={(e) => checkingTouchPosition(e, 'start')}
   on:touchmove={(e) => checkingTouchPosition(e, 'move')}
   on:touchend={handleEndOfDrawing}
+  on:mouseenter={setCanvasCursorVisible}
+  on:mouseleave={setCanvasCursorHidden}
 />
 
 <style lang="scss">

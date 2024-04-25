@@ -1,38 +1,37 @@
 import { writable } from 'svelte/store';
 
-const canvasVisible = writable(false);
+const canvasCursor = writable(false);
+
+const setCanvasCursorVisible = () => canvasCursor.set(true);
+const setCanvasCursorHidden = () => canvasCursor.set(false);
 
 const canvasSetting = writable({
   background_color: '',
   width: 0,
   height: 0,
+  canvas_visible: false,
 });
 
 const canvasPanel = writable({
-  line_width: 3,
+  line_width: 30,
   paint_color: '#000000',
   eraser: false,
 });
 
-const setCanvasVisible = () => {
-  canvasVisible.update(() => true);
-
-  localStorage.setItem("canvasVisible", JSON.stringify(true));
-};
-
 const setCanvasSetting = (setting) => {
-  canvasSetting.update(() => setting);
+  canvasSetting.set(setting);
 
   localStorage.setItem("savedCanvasSetting", JSON.stringify(setting));
 };
 
-const setCanvasPanel = (panel) => canvasPanel.update(() => panel);
+const setCanvasPanel = (panel) => canvasPanel.set(panel);
 
 export {
-  canvasVisible,
+  canvasCursor,
   canvasSetting,
   canvasPanel,
-  setCanvasVisible,
   setCanvasSetting,
   setCanvasPanel,
+  setCanvasCursorVisible,
+  setCanvasCursorHidden,
 };

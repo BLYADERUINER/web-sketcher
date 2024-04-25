@@ -1,16 +1,14 @@
 <script>
-  import { setCanvasSetting, setCanvasVisible } from '$lib/stores/canvas_store.js';
+  import { setCanvasSetting } from '$lib/stores/canvas_store.js';
 
   let setting = {
     background_color: "#ffffff",
     width: 600,
     height: 400,
+    canvas_visible: true,
   };
 
-  function handleSettingForCanvas() {
-    setCanvasSetting(setting);
-    setCanvasVisible();
-  }
+  const handleSettingForCanvas = () => setCanvasSetting(setting);
 </script>
 
 <section class="setting">
