@@ -48,6 +48,26 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 75vh;
+  height: 75vh;
+  overflow: auto;
   background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar {
+  width: .5em;
+  height: .5em;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #777777;
+  border-radius: 1em;
+}
+
+::selection {
+  color: #ffffff;
+  background: #7a3a77;
 }

@@ -3,8 +3,8 @@
 
   let setting = {
     background_color: "#ffffff",
-    width: 600,
-    height: 400,
+    width: 1200,
+    height: 600,
     canvas_visible: true,
   };
 
@@ -35,7 +35,7 @@
         type="number"
         bind:value={setting.height}
         min=400
-        max=900
+        max=1080
       />
     </div>
     <div class="setting__container">
@@ -52,8 +52,8 @@
       />
     </div>
     <div class="setting__info-container">
-      <span class="setting__info">height = min: 400px; max: 900px;</span>
-      <span class="setting__info">width = min: 600px; max: 1440px;</span>
+      <span class="setting__info">height = min: 400px; max: 1080px;</span>
+      <span class="setting__info">width = min: 600px; max: 1920px;</span>
     </div>
     <button class="setting__button" type="submit">
       Применить
@@ -75,13 +75,11 @@
     background-color: #ffffff;
     backdrop-filter: blur(15px);
 
-    // Заголовок
     &__title {
       font-size: 2em;
       text-align: center;
     }
 
-    // Форма
     &__form {
       display: flex;
       flex-direction: column;
@@ -90,7 +88,6 @@
       gap: 1rem;
     }
 
-    // Контейнер ярлыка и инпута
     &__container {
       display: flex;
       flex-direction: row;
@@ -99,7 +96,6 @@
       width: 250px;
     }
 
-    // Ярлык
     &__label {
       flex: 1;
       font-size: 1.1em;
@@ -107,7 +103,6 @@
       font-weight: 500;
     }
 
-    // Цвет холста
     &__input-color {
       appearance: none;
       cursor: pointer;
@@ -125,7 +120,6 @@
       }
     }
 
-    // Размер холста
     &__input-size {
       text-align: center;
       inline-size: 4.8em;
@@ -140,7 +134,6 @@
       }
     }
 
-    // Контейнер с инфой о размерах
     &__info-container {
       display: flex;
       flex-direction: column;
@@ -148,7 +141,6 @@
       gap: .5em;
     }
 
-    // Текст с инфо 
     &__info {
       color: #9c9b9b;
       font-size: .6em;
@@ -156,7 +148,6 @@
       text-align: left;
     }
 
-    // Кнопка подтверждения
     &__button {
       font-weight: 500;
       color: #000000;
@@ -177,7 +168,7 @@
     }
   }
 
-  // переменная для goog api
+  // переменная для google api
   @property --angle {
     syntax: '<angle>';
     initial-value: 0deg;

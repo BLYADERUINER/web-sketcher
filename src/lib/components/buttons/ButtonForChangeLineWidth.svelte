@@ -20,7 +20,7 @@
       class="panel__line-width_range"
       type="range"
       min=10
-      max=60
+      max=90
       bind:value={rangeValue}
       on:mouseup={visibleRangeHidden}
       on:touchend={visibleRangeHidden}

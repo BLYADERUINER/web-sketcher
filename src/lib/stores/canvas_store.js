@@ -13,7 +13,7 @@ const canvasSetting = writable({
 });
 
 const canvasPanel = writable({
-  line_width: 30,
+  line_width: 45,
   paint_color: '#000000',
   eraser: false,
 });
@@ -26,6 +26,13 @@ const setCanvasSetting = (setting) => {
 
 const setCanvasPanel = (panel) => canvasPanel.set(panel);
 
+const setCanvasToHidden = () => {
+  canvasSetting.update(prev => ({
+    ...prev,
+    canvas_visible: false,
+  }));
+};
+
 export {
   canvasCursor,
   canvasSetting,
@@ -34,4 +41,5 @@ export {
   setCanvasPanel,
   setCanvasCursorVisible,
   setCanvasCursorHidden,
+  setCanvasToHidden,
 };
