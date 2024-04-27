@@ -1,6 +1,6 @@
 .header__logo {
-  width: 120px;
-  height: 150px;
+  width: clamp(5.5em, 7vw, 7.5em);
+  height: clamp(7em, 9vw, 9.38em);
   user-select: none;
 }
 

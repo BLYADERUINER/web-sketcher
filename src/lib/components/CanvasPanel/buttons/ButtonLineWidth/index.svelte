@@ -11,7 +11,7 @@
 </script>
 
 <button
-  class="panel__line-width"
+  class="panel__line-width panel__button"
   type="button"
   title="Line Width"
   on:click={() => visibleRange = true}

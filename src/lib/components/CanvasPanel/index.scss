@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: clamp(.5rem, 1vw, 1rem);
 
   &__title {
-    font-size: 3em;
+    font-size: clamp(2em, 3vw, 3em);
     font-weight: 600;
     margin: 0;
   }
@@ -13,6 +13,6 @@
   &__tool-container {
     display: flex;
     flex-direction: row;
-    gap: 1.5rem;
+    gap: clamp(1rem, 1.5vw, 1.5rem);
   }
 }

@@ -4,7 +4,7 @@
   export let colorValue;
 </script>
 
-<button class="panel__color">
+<button class="panel__color panel__button">
   <input
     class="panel__color-input"
     type="color"

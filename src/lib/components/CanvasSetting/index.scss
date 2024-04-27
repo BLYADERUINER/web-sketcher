@@ -6,13 +6,13 @@
   animation: BorderRotate linear 9s infinite;
   margin: 0 auto;
   min-width: 35%;
-  padding: 1.5rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
   box-shadow: 1px 1px 25px #a1a1a1;
   background-color: #ffffff;
   backdrop-filter: blur(15px);
 
   &__title {
-    font-size: 2em;
+    font-size: clamp(1.2em, 2vw, 2em);
     text-align: center;
   }
 
@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2.5rem 0 .5rem;
+    padding: clamp(1rem, 3vw, 2.5rem) 0 .5rem;
     gap: 1rem;
   }
 
@@ -34,7 +34,7 @@
 
   &__label {
     flex: 1;
-    font-size: 1.1em;
+    font-size: clamp(1em, 1.5vw, 1.1em);
     line-height: 1.5rem;
     font-weight: 500;
   }
@@ -87,8 +87,8 @@
   &__button {
     font-weight: 500;
     color: #000000;
-    margin-top: 3rem;
-    padding: .6em .9em;
+    margin-top: clamp(1rem, 3vw, 3rem);
+    padding: clamp(.5rem, .5vw,.6em) .9em;
     background-color: #ffffff;
     border: 2px solid #777777;
     box-shadow: 0 0 15px 0 rgba(0,0,0,.05),0 4px 4px 0 rgba(0,0,0,.05);

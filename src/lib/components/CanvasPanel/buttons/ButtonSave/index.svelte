@@ -15,7 +15,7 @@
 </script>
 
 <button
-  class="panel__save"
+  class="panel__save panel__button"
   type="button"
   title="Save"
   on:click={downloadCanvasImage}

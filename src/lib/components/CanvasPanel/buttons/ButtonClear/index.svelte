@@ -26,7 +26,7 @@
 </script>
 
 <button
-  class="panel__clearing"
+  class="panel__clearing panel__button"
   type="button"
   title="Clear"
   on:click={clearCanvas}

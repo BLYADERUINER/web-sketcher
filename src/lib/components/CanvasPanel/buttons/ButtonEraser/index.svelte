@@ -7,7 +7,7 @@
 </script>
 
 <button
-  class="panel__eraser"
+  class="panel__eraser panel__button"
   class:panel__eraser_active={eraserValue}
   type="button"
   title="Eraser"

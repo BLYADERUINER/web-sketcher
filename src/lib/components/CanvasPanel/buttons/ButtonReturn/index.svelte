@@ -26,7 +26,7 @@
 </script>
 
 <button
-  class="panel__return"
+  class="panel__return panel__button"
   type="button"
   title="Return"
   on:click={handleReturn}

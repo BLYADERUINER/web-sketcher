@@ -4,7 +4,7 @@
 
 body {
   font-family: 'Inter', Arial, sans-serif;
-  font-size: 16px;
+  font-size: clamp(14px, 2.5vw, 16px);
   color: #000000;
   min-height: 100vh;
   min-width: 320px;
@@ -51,6 +51,16 @@ main {
   height: 75vh;
   overflow: auto;
   background-color: #f1f1f1;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.panel__button {
+  width: clamp(2rem, 3vw, 3rem);
+  height: clamp(2rem, 3vw, 3rem);
 }
 
 ::-webkit-scrollbar {
