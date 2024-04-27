@@ -13,7 +13,7 @@
   title="Eraser"
   on:click={handleToggleEraser}
 >
-  <IconEraser />
+  <IconEraser {eraserValue} />
 </button>
 
 <style lang="scss">

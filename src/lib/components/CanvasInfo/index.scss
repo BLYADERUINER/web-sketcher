@@ -1,0 +1,11 @@
+.canvas__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(.3em, 1vw, .6em);
+
+  &-text {
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    font-weight: 600;
+  }
+}

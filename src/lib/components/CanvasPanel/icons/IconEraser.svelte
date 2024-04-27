@@ -1,9 +1,14 @@
+<script>
+  export let eraserValue;
+</script>
+
 <svg
   width="48"
   height="48"
   viewBox="0 0 32 32"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
+  class:eraser_active={eraserValue}
 >
   <g clip-path="url(#clip0_9_31)">
     <path d="M30.47 23.6201H32V28.1901H30.47V23.6201Z" fill="black"/>
@@ -61,6 +66,12 @@
   }
 
   svg:hover {
+    path {
+      fill: #eeff00;
+    }
+  }
+
+  .eraser_active {
     path {
       fill: #eeff00;
     }
