@@ -1,17 +1,26 @@
 <script>
-  import { setCanvasToHidden } from '$lib/stores/canvas_setting';
+  import { storeCanvasHistory, getLastCanvasHistory } from '$lib/stores/canvas_history';
 
 	import ReturnIcon from '$lib/icons/ReturnIcon.svelte';
 
   const handleReturn = () => {
-    let confirmReturn = false;
+    if ($storeCanvasHistory.length > 0) {
+      const history = getLastCanvasHistory();
+      
+      const imageCanvasLoader = new Image();
 
-    confirmReturn = confirm('The current canvas will be deleted. Confirm your action.');
+      imageCanvasLoader.onload = function() {
+        const canvas = document.querySelector('canvas');
+        const context = canvas.getContext('2d');
 
-    if (confirmReturn) {
-      setCanvasToHidden();
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(imageCanvasLoader, 0, 0);
+        context.lineCap = "round";
+      };
 
-      localStorage.clear();
+      imageCanvasLoader.src = history;
+    } else {
+      alert('No canvas to return');
     }
   };
 </script>

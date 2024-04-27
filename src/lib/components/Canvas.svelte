@@ -3,8 +3,9 @@
 	import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
 
-  import { storeCanvasSetting } from '$lib/stores/canvas_setting';
   import { storePanelTools } from '$lib/stores/canvas_panel';
+  import { storeCanvasSetting } from '$lib/stores/canvas_setting';
+  import { setStoreCanvasHistory } from '$lib/stores/canvas_history';
   import { setCanvasCursorHidden, setCanvasCursorVisible } from '$lib/stores/canvas_cursor';
 
   let setting = get(storeCanvasSetting);
@@ -38,6 +39,8 @@
     if (!panel.eraser) context.strokeStyle = panel.paint_color;
     else context.strokeStyle = setting.background_color;
     
+    handleSavingCanvasOnHistory();
+
     startPosition = { startPositionX, startPositionY };
 
     drawDotOnCanvas(startPositionX, startPositionY, context.strokeStyle);
@@ -66,16 +69,15 @@
     localStorage.setItem("savedCanvasData", canvasData);
   };
 
-  // const handleSavingCanvasOnHistory = () => {
-  //   const canvasData = canvas.toDataURL();
+  const handleSavingCanvasOnHistory = () => {
+    const canvasData = canvas.toDataURL();
 
-  //   history.push(canvasData);
-  // };
+    setStoreCanvasHistory(canvasData);
+  }
   
   const handleEndOfDrawing = () => {
     isDrawing = false;
     
-    // handleSavingCanvasOnHistory();
     handleSavingCanvasOnLocalStorage();
   };
 
@@ -111,20 +113,6 @@
 
     imageCanvasLoader.src = savedCanvasData;
   };
-
-  // const undoCanvas = () => {
-  //     const previousState = history.pop();
-
-  //     imageCanvasLoader = new Image();
-
-  //     imageCanvasLoader.onload = function() {
-  //       context.clearRect(0, 0, canvas.width, canvas.height);
-  //       context.drawImage(imageCanvasLoader, 0, 0);
-  //       context.lineCap = "round";
-  //     };
-
-  //     imageCanvasLoader.src = previousState;
-  // };
 
   onMount(() => {
     savedCanvasData = localStorage.getItem('savedCanvasData');

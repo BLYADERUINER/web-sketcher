@@ -1,12 +1,13 @@
 <script>
   import { storeCanvasSetting } from '$lib/stores/canvas_setting';
 
+  import Logo from './Logo.svelte';
   import CanvasPanel from './CanvasPanel.svelte';
 </script>
 
 <header class="header">
   <div class="header__container">
-    <img class="header__logo" src="/logo.png" alt="Логотип Web-Sketcher"/>
+    <Logo canvas_visible={$storeCanvasSetting.canvas_visible} />
     {#if $storeCanvasSetting.canvas_visible}
       <CanvasPanel />
     {:else}
@@ -30,12 +31,6 @@
       display: flex;
       flex-direction: row;
       gap: 3em;
-    }
-
-    &__logo {
-      width: 120px;
-      height: 150px;
-      user-select: none;
     }
 
     &__text {

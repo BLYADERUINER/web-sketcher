@@ -10,7 +10,7 @@ const storeCanvasSetting = writable({
 const setStoreCanvasSetting = (setting) => {
   storeCanvasSetting.set(setting);
 
-  localStorage.setItem("storeCavedCanvasSetting", JSON.stringify(setting));
+  localStorage.setItem("savedCanvasSetting", JSON.stringify(setting));
 };
 
 const setCanvasToHidden = () => {
