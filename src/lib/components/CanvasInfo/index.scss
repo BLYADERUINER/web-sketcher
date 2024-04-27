@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   gap: clamp(.3em, 1vw, .6em);
+  width: clamp(9rem, 15vw, 12rem);
 
   &-text {
     font-size: clamp(1rem, 1.5vw, 1.4rem);
