@@ -1,0 +1,7 @@
+.panel__eraser {
+  transition: transform ease-in-out .2s;
+
+  &:hover, &_active {
+    transform: rotate(0.5turn);
+  }
+}

@@ -1,0 +1,18 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+
+  &__title {
+    font-size: 3em;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__tool-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}

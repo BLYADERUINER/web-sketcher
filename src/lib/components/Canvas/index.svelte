@@ -121,6 +121,8 @@
     if (savedCanvasSetting) setting = savedCanvasSetting;
 
     context = canvas.getContext('2d');
+    context.fillStyle = setting.background_color;
+    context.fillRect(0, 0, canvas.width, canvas.height);
     context.lineCap = "round";
 
     if (savedCanvasData) handleSavedCanvas();
@@ -135,11 +137,11 @@
   bind:this={canvas}
   width={setting.width}
   height={setting.height}
-  style:background={setting.background_color}
   in:fade
   on:mousedown={handleStartOfDrawing}
   on:mousemove={handleMoveOfDrawing}
   on:mouseup={handleEndOfDrawing}
+  on:mouseleave={handleEndOfDrawing}
   on:touchstart={(e) => checkingTouchPosition(e, 'start')}
   on:touchmove={(e) => checkingTouchPosition(e, 'move')}
   on:touchend={handleEndOfDrawing}
@@ -148,7 +150,5 @@
 />
 
 <style lang="scss">
-  canvas {
-    box-shadow: 1px 1px 25px #a1a1a1;
-  }
+  @import './index.scss';
 </style>

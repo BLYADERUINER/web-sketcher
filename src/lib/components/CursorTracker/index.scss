@@ -1,0 +1,21 @@
+.mousemover {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 300;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all linear .2s;
+  
+  &_active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__circle {
+    fill: rgba($color: #000000, $alpha: 0.1);
+    stroke: var(--cursor-color);
+    stroke-width: .1rem;
+  }
+}

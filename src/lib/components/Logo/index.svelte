@@ -25,14 +25,5 @@
 </button>
 
 <style lang="scss">
-  
-  .header__logo {
-    width: 120px;
-    height: 150px;
-    user-select: none;
-  }
-
-  button:disabled {
-    cursor: default;
-  }
+  @import './index.scss';
 </style>

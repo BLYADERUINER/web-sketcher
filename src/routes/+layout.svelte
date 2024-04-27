@@ -5,9 +5,9 @@
 
   import { setStoreCanvasSetting } from '$lib/stores/canvas_setting';
 
-  import Header from '$lib/components/Header.svelte';
-  import Footer from '$lib/components/Footer.svelte';
-  import CursorMover from '$lib/components/CursorMover.svelte';
+  import Header from '$lib/components/Header/index.svelte';
+  import Footer from '$lib/components/Footer/index.svelte';
+  import CursorTracker from '$lib/components/CursorTracker/index.svelte';
   
   let savedCanvasSetting;
 
@@ -20,7 +20,7 @@
   });
 </script>
 
-<CursorMover />
+<CursorTracker />
 <Header />
 <main class="main">
   <slot />

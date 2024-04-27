@@ -1,5 +1,5 @@
 <script>
-	import EraserIcon from '$lib/icons/EraserIcon.svelte';
+	import { IconEraser } from '$lib/components/CanvasPanel/icons';
 
   export let eraserValue;
 
@@ -13,15 +13,9 @@
   title="Eraser"
   on:click={handleToggleEraser}
 >
-  <EraserIcon />
+  <IconEraser />
 </button>
 
 <style lang="scss">
-  .panel__eraser {
-    transition: transform ease-in-out .2s;
-
-    &:hover, &_active {
-      transform: rotate(0.5turn);
-    }
-  }
+  @import './index.scss';
 </style>
