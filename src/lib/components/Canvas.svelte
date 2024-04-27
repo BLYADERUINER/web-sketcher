@@ -3,10 +3,12 @@
 	import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
 
-  import { canvasSetting, canvasPanel, setCanvasCursorVisible, setCanvasCursorHidden } from '$lib/stores/canvas_store.js';
+  import { storeCanvasSetting } from '$lib/stores/canvas_setting';
+  import { storePanelTools } from '$lib/stores/canvas_panel';
+  import { setCanvasCursorHidden, setCanvasCursorVisible } from '$lib/stores/canvas_cursor';
 
-  let setting = get(canvasSetting);
-  let panel = get(canvasPanel);
+  let setting = get(storeCanvasSetting);
+  let panel = get(storePanelTools);
 
   let canvas;
   let context;
@@ -63,10 +65,17 @@
 
     localStorage.setItem("savedCanvasData", canvasData);
   };
+
+  // const handleSavingCanvasOnHistory = () => {
+  //   const canvasData = canvas.toDataURL();
+
+  //   history.push(canvasData);
+  // };
   
   const handleEndOfDrawing = () => {
     isDrawing = false;
     
+    // handleSavingCanvasOnHistory();
     handleSavingCanvasOnLocalStorage();
   };
 
@@ -103,6 +112,20 @@
     imageCanvasLoader.src = savedCanvasData;
   };
 
+  // const undoCanvas = () => {
+  //     const previousState = history.pop();
+
+  //     imageCanvasLoader = new Image();
+
+  //     imageCanvasLoader.onload = function() {
+  //       context.clearRect(0, 0, canvas.width, canvas.height);
+  //       context.drawImage(imageCanvasLoader, 0, 0);
+  //       context.lineCap = "round";
+  //     };
+
+  //     imageCanvasLoader.src = previousState;
+  // };
+
   onMount(() => {
     savedCanvasData = localStorage.getItem('savedCanvasData');
     savedCanvasSetting = JSON.parse(localStorage.getItem('savedCanvasSetting'));
@@ -129,7 +152,6 @@
   on:mousedown={handleStartOfDrawing}
   on:mousemove={handleMoveOfDrawing}
   on:mouseup={handleEndOfDrawing}
-  on:mouseleave={handleEndOfDrawing}
   on:touchstart={(e) => checkingTouchPosition(e, 'start')}
   on:touchmove={(e) => checkingTouchPosition(e, 'move')}
   on:touchend={handleEndOfDrawing}

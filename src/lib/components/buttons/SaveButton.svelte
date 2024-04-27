@@ -17,6 +17,7 @@
 <button
   class="panel__save"
   type="button"
+  title="Save"
   on:click={downloadCanvasImage}
 >
   <SaverIcon />

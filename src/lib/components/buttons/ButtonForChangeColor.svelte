@@ -8,6 +8,7 @@
   <input
     class="panel__color-input"
     type="color"
+    title="Color"
     bind:value={colorValue}
   />
   <ColorIcon

@@ -1,5 +1,5 @@
 <script>
-  import { canvasSetting } from '$lib/stores/canvas_store.js';
+  import { storeCanvasSetting } from '$lib/stores/canvas_setting';
 
   import CanvasPanel from './CanvasPanel.svelte';
 </script>
@@ -7,7 +7,7 @@
 <header class="header">
   <div class="header__container">
     <img class="header__logo" src="/logo.png" alt="Логотип Web-Sketcher"/>
-    {#if $canvasSetting.canvas_visible}
+    {#if $storeCanvasSetting.canvas_visible}
       <CanvasPanel />
     {:else}
       <h1 class="header__text">

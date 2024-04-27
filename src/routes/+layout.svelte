@@ -3,7 +3,7 @@
 
 	import { onMount } from 'svelte';
 
-  import { setCanvasSetting } from '$lib/stores/canvas_store.js';
+  import { setStoreCanvasSetting } from '$lib/stores/canvas_setting';
 
   import Header from '$lib/components/Header.svelte';
   import Footer from '$lib/components/Footer.svelte';
@@ -15,7 +15,7 @@
     savedCanvasSetting = JSON.parse(localStorage.getItem('savedCanvasSetting'));
 
     if (savedCanvasSetting) {
-      setCanvasSetting(savedCanvasSetting);
+      setStoreCanvasSetting(savedCanvasSetting);
     }
   });
 </script>

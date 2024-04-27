@@ -1,12 +1,13 @@
 <script>
   import { fade } from 'svelte/transition';
 
-  import { canvasPanel } from '$lib/stores/canvas_store';
+  import { storePanelTools } from '$lib/stores/canvas_panel';
 
 	import ButtonForChangeLineWidth from '$lib/components/buttons/ButtonForChangeLineWidth.svelte';
   import ButtonForChangeColor from '$lib/components/buttons/ButtonForChangeColor.svelte';
 	import EraserButton from '$lib/components/buttons/EraserButton.svelte';
 	import SaveButton from '$lib/components/buttons/SaveButton.svelte';
+  import ClearButton from '$lib/components/buttons/ClearButton.svelte';
 	import ReturnButton from '$lib/components/buttons/ReturnButton.svelte';
 </script>
 
@@ -16,15 +17,16 @@
   </h1>
   <div class="panel__tool-container">
     <ButtonForChangeLineWidth
-      bind:rangeValue={$canvasPanel.line_width}
+      bind:rangeValue={$storePanelTools.line_width}
     />
     <ButtonForChangeColor
-      bind:colorValue={$canvasPanel.paint_color}
+      bind:colorValue={$storePanelTools.paint_color}
     />
     <EraserButton
-      bind:eraserValue={$canvasPanel.eraser}
+      bind:eraserValue={$storePanelTools.eraser}
     />
     <SaveButton />
+    <ClearButton />
     <ReturnButton />
   </div>
 </div>

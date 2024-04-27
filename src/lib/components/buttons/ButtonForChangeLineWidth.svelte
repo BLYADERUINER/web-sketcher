@@ -13,6 +13,7 @@
 <button
   class="panel__line-width"
   type="button"
+  title="Line Width"
   on:click={() => visibleRange = true}
 >
   {#if visibleRange}

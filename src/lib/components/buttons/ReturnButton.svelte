@@ -1,5 +1,5 @@
 <script>
-  import { setCanvasToHidden } from '$lib/stores/canvas_store.js';
+  import { setCanvasToHidden } from '$lib/stores/canvas_setting';
 
 	import ReturnIcon from '$lib/icons/ReturnIcon.svelte';
 
@@ -19,6 +19,7 @@
 <button
   class="panel__return"
   type="button"
+  title="Return"
   on:click={handleReturn}
 >
   <ReturnIcon />

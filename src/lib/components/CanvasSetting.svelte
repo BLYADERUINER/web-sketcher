@@ -1,5 +1,5 @@
 <script>
-  import { setCanvasSetting } from '$lib/stores/canvas_store.js';
+  import { setStoreCanvasSetting } from '$lib/stores/canvas_setting';
 
   let setting = {
     background_color: "#ffffff",
@@ -8,7 +8,7 @@
     canvas_visible: true,
   };
 
-  const handleSettingForCanvas = () => setCanvasSetting(setting);
+  const handleSettingForCanvas = () => setStoreCanvasSetting(setting);
 </script>
 
 <section class="setting">

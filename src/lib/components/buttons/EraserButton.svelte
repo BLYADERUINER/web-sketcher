@@ -10,6 +10,7 @@
   class="panel__eraser"
   class:panel__eraser_active={eraserValue}
   type="button"
+  title="Eraser"
   on:click={handleToggleEraser}
 >
   <EraserIcon />
